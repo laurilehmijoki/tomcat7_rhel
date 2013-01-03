@@ -11,7 +11,7 @@
     # In site.pp
     node "superserver" {
       tomcat7_rhel::tomcat-application { "my-web-application":
-        application_root => "/opt/applications",
+        application_root => "/opt",
         tomcat_user => "webuser",
         tomcat_port => "8080",
         jvm_envs => "-Dmy.java.opt=i_love_java"
@@ -21,5 +21,5 @@
 ### Deploy
 
     scp app.war webuser@superserver:~/app.war
-    ssh webuser@superserver "rm -rf /opt/applications/my-web-application/webapps/*"
-    ssh webuser@superserver "cp ~/app.war /opt/applications/my-web-application/webapps"
+    ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
+    ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps"
