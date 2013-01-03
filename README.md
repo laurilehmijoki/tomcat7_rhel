@@ -1,5 +1,9 @@
 # Tomcat 7 on RHEL 6
 
+## Install
+
+   puppet module install llehmijo/tomcat7_rhel
+
 ## Example usage
 
     # In site.pp
