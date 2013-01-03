@@ -20,7 +20,6 @@
 
 ### Deploy
 
-    # Deploy .war
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/applications/my-web-application/webapps/*"
     ssh webuser@superserver "cp ~/app.war /opt/applications/my-web-application/webapps"
