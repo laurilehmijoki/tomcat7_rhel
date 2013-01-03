@@ -27,3 +27,8 @@
 ## Development
 
 This project uses [Semantic Versioning](http://semver.org).
+
+## Links
+
+This project in Puppet Forge:
+<http://forge.puppetlabs.com/llehmijo/tomcat7_rhel>.
