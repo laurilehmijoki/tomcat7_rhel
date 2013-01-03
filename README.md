@@ -6,6 +6,8 @@
 
 ## Example usage
 
+### Configure Puppet
+
     # In site.pp
     node "superserver" {
       tomcat7_rhel::tomcat-application { "my-web-application":
@@ -15,6 +17,8 @@
         jvm_envs => "-Dmy.java.opt=i_love_java"
       }
     }
+
+### Deploy
 
     # Deploy .war
     scp app.war webuser@superserver:~/app.war
