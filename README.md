@@ -23,3 +23,7 @@
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
     ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps"
+
+## Development
+
+This project uses [Semantic Versioning](http://semver.org).
