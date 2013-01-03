@@ -24,12 +24,14 @@ define tomcat7_rhel::tomcat-application(
 
   service { "$application_name":
     ensure => running,
-    hasstatus => true
+    hasstatus => true,
+    require => Package['tomcat7']
   }
 
   file { "/etc/init.d/$application_name":
     ensure => link,
     target => "/etc/init.d/tomcat7",
+    require => Package['tomcat7']
   }
 
   file { "$application_dir/conf/web.xml":
