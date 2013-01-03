@@ -1,5 +1,5 @@
-class tomcat7-rhel {
-  include tomcat7-rhel::jpackage-repo
+class tomcat7_rhel {
+  include tomcat7_rhel::jpackage-repo
 
   package { "java-1.7.0-openjdk":
     ensure => installed
