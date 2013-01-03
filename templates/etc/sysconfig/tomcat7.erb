@@ -1,0 +1,30 @@
+# Where your tomcat installation lives
+CATALINA_HOME="<%= catalina_home %>"
+CATALINA_BASE="<%= application_dir%>"
+CATALINA_TMPDIR="$CATALINA_BASE/temp"
+
+JVM_OPTS="-server -Xmx1024m -Xms128m -XX:PermSize=128m <%= jvm_envs %>"
+
+JAVA_OPTS="${JAVA_OPTS} ${JVM_OPTS}"
+
+# What user should run tomcat
+TOMCAT_USER="<%= tomcat_user %>"
+
+TOMCAT_LOG=<%= tomcat_log %>
+
+# You can change your tomcat locale here
+#LANG="en_US"
+
+# Run tomcat under the Java Security Manager
+#SECURITY_MANAGER="false"
+
+# Time to wait in seconds, before killing process
+SHUTDOWN_WAIT="10"
+
+# Whether to annoy the user with "attempting to shut down" messages or not
+#SHUTDOWN_VERBOSE="false"
+
+# Set the TOMCAT_PID location
+CATALINA_PID="/var/run/<%= application_name %>.pid"
+
+TOMCAT_CFG=/etc/sysconfig/<%= application_name %>
