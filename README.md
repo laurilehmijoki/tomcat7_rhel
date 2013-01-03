@@ -2,7 +2,7 @@
 
 ## Install
 
-   puppet module install llehmijo/tomcat7_rhel
+    puppet module install llehmijo/tomcat7_rhel
 
 ## Example usage
 
