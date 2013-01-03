@@ -10,6 +10,10 @@ define tomcat7_rhel::tomcat-application(
   $tomcat_log = "$application_dir/logs/catalina.out"
   $catalina_home = "/usr/share/tomcat7"
 
+  File {
+    before => Service["$application_name"]
+  }
+
   file { [
     "$application_dir/conf","$application_dir/temp","$application_dir/work",
     "$application_dir/logs","$application_dir/webapps"]:
