@@ -14,7 +14,10 @@
         application_root => "/opt",
         tomcat_user => "webuser",
         tomcat_port => "8080",
-        jvm_envs => "-Dmy.java.opt=i_love_java"
+        jvm_envs => "-Dmy.java.opt=i_love_java",
+        tomcat_manager => true,
+        tomcat_admin_user => "superuser",
+        tomcat_admin_password => "secretpassword"
       }
     }
 
