@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+* Add support for Tomcat Manager
+
 ## 0.1.2
 
 * Add missing dependencies to `tomcat7_rhel::tomcat-application`
