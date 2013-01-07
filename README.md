@@ -23,6 +23,16 @@ Features
         tomcat_admin_user => "superuser",
         tomcat_admin_password => "secretpassword"
       }
+      
+      tomcat7_rhel::tomcat-application { "my-second-application":
+        application_root => "/opt",
+        tomcat_user => "webuser",
+        tomcat_port => "8090",
+        jvm_envs => "-Dmy.java.opt=i_love_scala",
+        tomcat_manager => true,
+        tomcat_admin_user => "superuser",
+        tomcat_admin_password => "secretpassword"
+      }
     }
 
 ### Deploy
