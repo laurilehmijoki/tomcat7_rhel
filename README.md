@@ -1,5 +1,9 @@
 # Tomcat 7 on RHEL 6
 
+Features
+
+* Allow multiple Tomcat instances on same machine ("the base + home setup")
+
 ## Install
 
     puppet module install llehmijo/tomcat7_rhel
