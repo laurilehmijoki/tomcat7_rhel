@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while curl -s -o /dev/null -w "%{http_code}" localhost:<%=tomcat_port%> | grep -v 200; do 
+  echo Waiting for <%=application_name%> to respond...
+  sleep 2
+done
+if [[ "$?" == "0" ]]; then
+	echo "Smoke test on <%=application_name%> succeeded"
+	exit 0
+else
+	echo "Smoke test on <%=application_name%> failed"
+	exit 1
+fi

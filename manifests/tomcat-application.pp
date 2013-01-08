@@ -69,4 +69,12 @@ define tomcat7_rhel::tomcat-application(
   file { "/etc/logrotate.d/$application_name":
     content => template("tomcat7_rhel/etc/logrotate.d/tomcat7.erb")
   }
+
+  file { "$application_dir/bin/run_smoke_test.sh":
+		content => template("tomcat7_rhel/run_smoke_test.sh.erb"),
+    owner   => "$tomcat_user",
+    group   => "$tomcat_user",
+    mode    => 0744,
+    require => File["$application_dir/bin"]
+	}
 }
