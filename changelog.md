@@ -1,9 +1,11 @@
 # Changelog
 
-## HEAD
+## 0.3.0
 
 * Install latest Java 7
 * Depend on OpenJDK-devel
+* Add smoke test script
+* Add Tomcat Manager deployment script
 
 ## 0.2.0
 
