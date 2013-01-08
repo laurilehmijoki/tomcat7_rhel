@@ -46,6 +46,7 @@ define tomcat7_rhel::tomcat-application(
 		tomcat7_rhel::tomcat-manager { "Install Tomcat Manager":
 		  tomcat_admin_user => $tomcat_admin_user,  	
 		  tomcat_admin_password => $tomcat_admin_password,  	
+      tomcat_user => $tomcat_user,
 		  application_dir => $application_dir,  	
       application_name => $application_name,
 		  tomcat_port => $tomcat_port  	

@@ -1,6 +1,7 @@
 define tomcat7_rhel::tomcat-manager(
                                     $tomcat_admin_user, 
                                     $tomcat_admin_password, 
+                                    $tomcat_user,
                                     $application_dir, 
                                     $application_name,
                                     $tomcat_port) {
@@ -29,8 +30,8 @@ define tomcat7_rhel::tomcat-manager(
 
   file { "$application_dir/bin/deploy_with_tomcat_manager.sh":
 		content => template("tomcat7_rhel/deploy_with_tomcat_manager.sh.erb"),
-    owner   => $tomcat_user,
-    group   => $tomcat_user,
+    owner   => "$tomcat_user",
+    group   => "$tomcat_user",
     mode    => 0740,
     require => File["$application_dir/bin"]
 	}
