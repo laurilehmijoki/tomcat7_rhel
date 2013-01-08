@@ -1,4 +1,4 @@
 #!/bin/bash
 
 WAR_FILE=$1
-curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> 'http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=tomcat7_rhel&war=file:$WAR_FILE&update=true'
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=tomcat7_rhel&war=file:$WAR_FILE&update=true"
