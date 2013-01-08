@@ -23,7 +23,7 @@ Features
         tomcat_admin_user => "superuser",
         tomcat_admin_password => "secretpassword"
       }
-      
+
       tomcat7_rhel::tomcat-application { "my-second-application":
         application_root => "/opt",
         tomcat_user => "webuser",
@@ -37,14 +37,21 @@ Features
 
 ### Deploy
 
+#### Without Tomcat Manager
+
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
     ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps"
-	
-### Or using tomcat manager
-    scp app.war webuser@superserver:/tmp/app.war
-    ssh webuser@superservier "curl -4 -u tomcat:s3cr3t 'http://localhost:8080/manager/text/deploy?path=/&tag=APPLICATION&war=file:/tmp/app.war&update=true'"
+    ssh webuser@superserver "sudo service my-web-application restart"
 
+#### With Tomcat Manager
+
+    scp app.war webuser@superserver:/tmp/app.war
+    ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war"
+
+### Run smoke test on the application
+
+    ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
 
 ## Development
 
