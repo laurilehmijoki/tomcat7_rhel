@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+* Use `curl -L` in smoke test
+
 ## 0.3.0
 
 * Install latest Java 7
