@@ -1,5 +1,10 @@
 # Changelog
 
+## HEAD
+
+* Install latest Java 7
+* Depend on OpenJDK-devel
+
 ## 0.2.0
 
 * Add support for Tomcat Manager
