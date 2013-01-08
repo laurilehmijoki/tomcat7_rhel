@@ -43,16 +43,21 @@ define tomcat7_rhel::tomcat-application(
   }
   
   if $tomcat_manager == true {
-  	  package { "tomcat7-admin-webapps":
-    	ensure => installed,
-    	require => [Package['tomcat7'], Yumrepo['jpackage']]
-  	  }
-	  file { "$application_dir/conf/Catalina/localhost/manager.xml":
-    	content => template("tomcat7_rhel/manager.xml.erb"),
-  	  }
-	  file { "$application_dir/conf/tomcat-users.xml":
-    	content => template("tomcat7_rhel/tomcat-users.xml.erb")
-  	  }
+      package { "tomcat7-admin-webapps":
+        ensure => installed,
+        require => [Package['tomcat7'], Yumrepo['jpackage']]
+      }
+  	  
+      file { "$application_dir/conf/Catalina/localhost/manager.xml":
+        content => template("tomcat7_rhel/manager.xml.erb"),
+        notify  => Service["$application_name"],
+        require => Package["tomcat7-admin-webapps"]
+      }
+      file { "$application_dir/conf/tomcat-users.xml":
+        content => template("tomcat7_rhel/tomcat-users.xml.erb"),
+        notify  => Service["$application_name"],
+        require => Package["tomcat7-admin-webapps"]
+      }
   }
 
   file { "$application_dir/conf/web.xml":

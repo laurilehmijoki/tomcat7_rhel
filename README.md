@@ -40,6 +40,11 @@ Features
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
     ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps"
+	
+### Or using tomcat manager
+    scp app.war webuser@superserver:/tmp/app.war
+    ssh webuser@superservier "curl -4 -u tomcat:s3cr3t 'http://localhost:8080/manager/text/deploy?path=/&tag=APPLICATION&war=file:/tmp/app.war&update=true'"
+
 
 ## Development
 
