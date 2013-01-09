@@ -9,9 +9,8 @@ fi
 
 if [ ! -f "$WAR_FILE" ];
 then
-    echo "File not found!"
+    echo "File $WAR_FILE was not found!"
     exit 1
 fi
 
-
-curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=tomcat7_rhel&war=file:$WAR_FILE&update=true"
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=<%=application_name%>&war=file:$WAR_FILE&update=true"
