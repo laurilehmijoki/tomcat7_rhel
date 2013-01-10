@@ -1,5 +1,9 @@
 # Changelog
 
+## HEAD
+
+* Always install Tomcat Manager
+
 ## 0.3.2
 
 * Check that war file exists before trying to deploy it to tomcat
