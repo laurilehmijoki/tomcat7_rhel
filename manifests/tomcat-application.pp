@@ -12,7 +12,7 @@ define tomcat7_rhel::tomcat-application(
   $application_dir = "$application_root/$application_name"
   $tomcat_log = "$application_dir/logs/catalina.out"
   $catalina_home = "/usr/share/tomcat7"
-  
+
   File {
     before => Service["$application_name"]
   }
@@ -41,15 +41,15 @@ define tomcat7_rhel::tomcat-application(
     target => "/etc/init.d/tomcat7",
     require => Package['tomcat7']
   }
-  
+
   if $tomcat_manager == true {
-		tomcat7_rhel::tomcat-manager { "Install Tomcat Manager":
-		  tomcat_admin_user => $tomcat_admin_user,  	
-		  tomcat_admin_password => $tomcat_admin_password,  	
-      tomcat_user => $tomcat_user,
-		  application_dir => $application_dir,  	
-      application_name => $application_name,
-		  tomcat_port => $tomcat_port  	
+    tomcat7_rhel::tomcat-manager { "Install Tomcat Manager":
+    tomcat_admin_user => $tomcat_admin_user,
+    tomcat_admin_password => $tomcat_admin_password,
+    tomcat_user => $tomcat_user,
+    application_dir => $application_dir,
+    application_name => $application_name,
+    tomcat_port => $tomcat_port
     }
   }
 
@@ -71,10 +71,10 @@ define tomcat7_rhel::tomcat-application(
   }
 
   file { "$application_dir/bin/run_smoke_test.sh":
-		content => template("tomcat7_rhel/run_smoke_test.sh.erb"),
+    content => template("tomcat7_rhel/run_smoke_test.sh.erb"),
     owner   => "$tomcat_user",
     group   => "$tomcat_user",
     mode    => 0744,
     require => File["$application_dir/bin"]
-	}
+  }
 }
