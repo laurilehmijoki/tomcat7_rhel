@@ -1,4 +1,6 @@
 # Tomcat 7 on RHEL 6
+[![Build Status](https://secure.travis-ci.org/laurilehmijoki/tomcat7_rhel.png)]
+(http://travis-ci.org/laurilehmijoki/tomcat7_rhel)
 
 Features
 
