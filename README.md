@@ -51,11 +51,13 @@ Features
 ### Run smoke test on the application
 
     ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
-    
+
 ## Known problems
 
-* You may need to `puppet apply` the configuration twice, 
+* You may need to `puppet apply` the configuration twice,
   because the Tomcat Manager declarations have insufficient dependencies.
+
+* The Tomcat access logs are not rotated.
 
 ## Development
 
