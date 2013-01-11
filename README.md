@@ -54,8 +54,11 @@ Features
 
 ## Known problems
 
-* You may need to `puppet apply` the configuration twice,
+* You need to `puppet apply` the configuration twice,
   because the Tomcat Manager declarations have insufficient dependencies.
+
+  In addition, you also need to `sudo service my-web-application restart`, because of the
+  Tomcat Manager installation problem.
 
 * The Tomcat access logs are not rotated.
 
