@@ -48,7 +48,7 @@ Features
     scp app.war webuser@superserver:/tmp/app.war
     ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war"
     
-Make sure your application shuts down its threads when Tomcat calls the 
+If you deploy with Manager, ,ake sure your application shuts down its threads when Tomcat calls the 
 `ServletContextListener#contextDestroyed` method.
 
 ### Run smoke test on the application
