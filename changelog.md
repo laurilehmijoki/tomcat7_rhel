@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3
+
+* Set -XX:MaxPermSize=256m
+
 ## 0.3.2
 
 * Check that war file exists before trying to deploy it to tomcat
