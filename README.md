@@ -23,7 +23,9 @@ Features
         jvm_envs => "-Dmy.java.opt=i_love_java",
         tomcat_manager => true,
         tomcat_admin_user => "superuser",
-        tomcat_admin_password => "secretpassword"
+        tomcat_admin_password => "secretpassword",
+        jmxRegistryPort => 10054,
+        jmxServerPort => 10053
       }
 
       tomcat7_rhel::tomcat_application { "my-second-application":
