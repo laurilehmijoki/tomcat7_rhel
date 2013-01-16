@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0
+
+* Add support for JMX monitoring
+
+* **Break backward compatibility** by converting hypens into underscores (see
+  [issue #1](https://github.com/laurilehmijoki/tomcat7_rhel/issues/4) for more
+  info).
+
+  Migrate from previous versions to 1.0.0 by renaming
+  `tomcat7_rhel::tomcat-application` into `tomcat7_rhel::tomcat_application`.
+
 ## 0.3.3
 
 * Set -XX:MaxPermSize=256m
