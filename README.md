@@ -16,7 +16,7 @@ Features
 
     # In site.pp
     node "superserver" {
-      tomcat7_rhel::tomcat-application { "my-web-application":
+      tomcat7_rhel::tomcat_application { "my-web-application":
         application_root => "/opt",
         tomcat_user => "webuser",
         tomcat_port => "8080",
@@ -26,7 +26,7 @@ Features
         tomcat_admin_password => "secretpassword"
       }
 
-      tomcat7_rhel::tomcat-application { "my-second-application":
+      tomcat7_rhel::tomcat_application { "my-second-application":
         application_root => "/opt",
         tomcat_user => "webuser",
         tomcat_port => "8090",

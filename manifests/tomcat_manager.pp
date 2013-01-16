@@ -1,4 +1,4 @@
-define tomcat7_rhel::tomcat-manager(
+define tomcat7_rhel::tomcat_manager(
                                     $tomcat_admin_user,
                                     $tomcat_admin_password,
                                     $tomcat_user,
