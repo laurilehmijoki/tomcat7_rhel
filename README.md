@@ -4,7 +4,9 @@
 
 Features
 
-* Allow multiple Tomcat instances on same machine ("the base + home setup")
+* Deploy multiple Tomcat instances on same machine ("the base + home setup")
+* Use Tomcat Manager for deployment
+* Use JMX for monitoring the Tomcat instances
 
 ## Install
 
