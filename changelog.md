@@ -8,7 +8,7 @@
   [issue #1](https://github.com/laurilehmijoki/tomcat7_rhel/issues/4) for more
   info).
 
-  Migrate from previous versions to 1.0.0 by renaming
+  You can migrate from previous versions to 1.0.0 by renaming
   `tomcat7_rhel::tomcat-application` into `tomcat7_rhel::tomcat_application`.
 
 ## 0.3.3
