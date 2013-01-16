@@ -6,7 +6,9 @@ define tomcat7_rhel::tomcat-application(
   $jvm_envs,
   $tomcat_manager = false,
   $tomcat_admin_user = "tomcat",
-  $tomcat_admin_password = "s3cr3t") {
+  $tomcat_admin_password = "s3cr3t",
+  $jmxRegistryPort = 10052,
+  $jmxServerPort = 10051) {
   include tomcat7_rhel
 
   $application_dir = "$application_root/$application_name"
