@@ -7,6 +7,7 @@ Features
 * Deploy multiple Tomcat instances on same machine ("the base + home setup")
 * Use Tomcat Manager for deployment
 * Use JMX for monitoring the Tomcat instances
+* Use a ready-made smoke test script to test whether your web application is up and running
 
 ## Install
 
