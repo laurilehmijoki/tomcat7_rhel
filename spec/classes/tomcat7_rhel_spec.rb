@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'tomcat7_rhel' do
   let(:title) { 'foo' }
 
-  it { should include_class('tomcat7_rhel::jpackage-repo') }
+  it { should include_class('tomcat7_rhel::jpackage_repo') }
 
   it {
     should contain_package('tomcat7').with({
