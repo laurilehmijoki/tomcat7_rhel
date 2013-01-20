@@ -53,12 +53,32 @@ Features
     scp app.war webuser@superserver:/tmp/app.war
     ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war"
     
-If you deploy with Manager, make sure your application shuts down its threads when Tomcat calls the 
-`ServletContextListener#contextDestroyed` method.
+#####  You can also use parallel deployment feature of tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)
+
+    scp app.war webuser@superserver:/tmp/app.war
+    ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war 1.2"
+
+This starts a new version (1.2) of application in same contextpath as old one, without shutting down the old version,
+meaning that new sessions (and requests) will go to new instance, while existing sessions stay in old version of application.
+This also results in zero downtime of your application.
+
+You can list running applications and their versions:
+	
+	ssh webuser@superserver "/opt/my-web-application/bin/list-applications.sh"
+	
+And undeploy old version of application:
+
+	ssh webuser@superserver "/opt/my-web-application/bin/undeploy_with_tomcat_manager.sh 1.1"
+	
+    
+NOTE. if you deploy with Manager, make sure your application shuts down correctly when Tomcat calls the 
+`ServletContextListener#contextDestroyed` method, otherwise you will experience OOMs and other strange phenomenoms.
 
 ### Run smoke test on the application
 
     ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
+    
+    
 
 ## Known problems
 

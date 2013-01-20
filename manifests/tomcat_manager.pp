@@ -35,4 +35,22 @@ define tomcat7_rhel::tomcat_manager(
     mode    => 0740,
     require => File["$application_dir/bin"]
   }
+  
+  file { "$application_dir/bin/list-applications.sh":
+    content => template("tomcat7_rhel/list-applications.sh.erb"),
+    owner   => "$tomcat_user",
+    group   => "$tomcat_user",
+    mode    => 0740,
+    require => File["$application_dir/bin"]
+  }
+  
+    file { "$application_dir/bin/undeploy_with_tomcat_manager.sh":
+    content => template("tomcat7_rhel/undeploy_with_tomcat_manager.sh.erb"),
+    owner   => "$tomcat_user",
+    group   => "$tomcat_user",
+    mode    => 0740,
+    require => File["$application_dir/bin"]
+  }
+  
+  
 }
