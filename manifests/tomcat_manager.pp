@@ -44,7 +44,7 @@ define tomcat7_rhel::tomcat_manager(
     require => File["$application_dir/bin"]
   }
   
-    file { "$application_dir/bin/undeploy_with_tomcat_manager.sh":
+  file { "$application_dir/bin/undeploy_with_tomcat_manager.sh":
     content => template("tomcat7_rhel/undeploy_with_tomcat_manager.sh.erb"),
     owner   => "$tomcat_user",
     group   => "$tomcat_user",
