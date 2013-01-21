@@ -89,7 +89,18 @@ And undeploy an old version of the application:
 
 ## Development
 
+### Versioning
+
 This project uses [Semantic Versioning](http://semver.org).
+
+### Testing
+
+We test this project with <http://rspec-puppet.com/>.
+
+You can run the tests like this:
+
+    bundle install # Installs the Ruby gems that we use for testing
+    rake
 
 ## Links
 
