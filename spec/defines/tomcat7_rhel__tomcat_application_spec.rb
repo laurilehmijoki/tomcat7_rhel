@@ -37,5 +37,15 @@ describe 'tomcat7_rhel::tomcat_application' do
         'ensure' => 'running'
       })
     }
+
+    it {
+      should contain_file('/etc/sysconfig/my-web-app').
+        with_content(/.*JVM_OPTS="-server -Xmx1024m -Xms128m -XX:MaxPermSize=256m -Di_love_java=true".*/m)
+    }
+
+    it {
+      should contain_file('/etc/sysconfig/my-web-app').
+        with_content(/.*CATALINA_BASE="\/opt\/my-web-app".*/m)
+    }
   end
 end
