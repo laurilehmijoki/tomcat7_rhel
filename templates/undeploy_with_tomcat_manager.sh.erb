@@ -9,4 +9,4 @@ fi
 VERSIONSTRING="&version=$VERSION"
 
 echo "Undeploying <%=application_name%> version: $VERSION"
-curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:8080/manager/text/undeploy?path=/$VERSIONSTRING&tag=<%=application_name%>"
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/undeploy?path=/$VERSIONSTRING&tag=<%=application_name%>"
