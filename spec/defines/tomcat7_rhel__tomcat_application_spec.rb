@@ -47,5 +47,16 @@ describe 'tomcat7_rhel::tomcat_application' do
       should contain_file('/etc/sysconfig/my-web-app').
         with_content(/.*CATALINA_BASE="\/opt\/my-web-app".*/m)
     }
+
+    it {
+      should contain_file('/etc/logrotate.d/my-web-app').
+        with_content(
+          /\/opt\/my-web-app\/logs\/catalina.out {/m)
+    }
+
+    it {
+      should contain_file('/opt/my-web-app/bin/run_smoke_test.sh').
+        with_content(/.*curl -L.*localhost:8123.*/m)
+    }
   end
 end
