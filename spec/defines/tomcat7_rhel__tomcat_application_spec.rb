@@ -13,6 +13,8 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it { should include_class('tomcat7_rhel') }
 
+    it { should_not contain_package('tomcat7-admin-webapps') }
+
     it {
       should contain_file('/opt/my-web-app/conf/server.xml').
         with_content(/.*port="8123".*/m)
