@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+VERSION=$1
+
+if [ -z "$VERSION" ]; then
+  echo "Usage undeploy_with_tomcat_manager.sh VERSION_TO_UNDEPLOY"
+  exit 1
+fi
+VERSIONSTRING="&version=$VERSION"
+
+echo "Undeploying <%=application_name%> version: $VERSION"
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/undeploy?path=/$VERSIONSTRING&tag=<%=application_name%>"

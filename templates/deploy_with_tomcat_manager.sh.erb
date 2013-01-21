@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 WAR_FILE=$1
+VERSION=$2
+
 
 if [ -z "$WAR_FILE" ]; then
-  echo "Usage: deploy_with_tomcat_manager.sh [<full path to local .war]"
+  echo "Usage: deploy_with_tomcat_manager.sh [<full path to local .war] [VERSION TO DEPLOY (optional)]"
   exit 1
 fi
 
@@ -13,4 +15,11 @@ then
     exit 1
 fi
 
-curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=<%=application_name%>&war=file:$WAR_FILE&update=true"
+VERSIONSTRING=""
+if [ ! -z "$VERSION" ]; then
+  echo "Using parallel deployment, deploying version $VERSION"
+  VERSIONSTRING="&version=$VERSION"
+fi
+
+
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=<%=application_name%>&war=file:$WAR_FILE&update=true$VERSIONSTRING"
