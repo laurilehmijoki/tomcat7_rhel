@@ -1,6 +1,50 @@
 require 'spec_helper'
 
 describe 'tomcat7_rhel::tomcat_application' do
+  context 'tomcat_manager = true' do
+    let(:title) { 'my-app-with-tomcat-manager' }
+
+    let(:params) {{
+      :application_root => '/opt',
+      :tomcat_user      => 'uzer',
+      :tomcat_port      => 8123,
+      :tomcat_manager   => true,
+      :jvm_envs         => '-Di_love_tomcat=true'
+    }}
+
+    it { should contain_package('tomcat7-admin-webapps') }
+
+    it {
+      should contain_file('/opt/my-app-with-tomcat-manager/conf/tomcat-users.xml').
+        with_content(/.*username="tomcat".*/m).
+        with_content(/.*password="s3cr3t".*/m)
+    }
+
+    it {
+      should contain_file(
+        '/opt/my-app-with-tomcat-manager/conf/Catalina/localhost/manager.xml').
+        with_content(/.*Context path="\/manager".*/m)
+    }
+
+    it {
+      should contain_file(
+        '/opt/my-app-with-tomcat-manager/bin/deploy_with_tomcat_manager.sh').
+        with_content(/.*curl -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/deploy\?path=\/&tag=my-app-with-tomcat-manager.*/m)
+    }
+
+    it {
+      should contain_file(
+        '/opt/my-app-with-tomcat-manager/bin/list-applications.sh').
+        with_content(/.*curl -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/list".*/m)
+    }
+
+    it {
+      should contain_file(
+        '/opt/my-app-with-tomcat-manager/bin/undeploy_with_tomcat_manager.sh').
+        with_content(/.*curl -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/undeploy\?path=.*&tag=my-app-with-tomcat-manager".*/m)
+    }
+  end
+
   context 'minimal configuration' do
     let(:title) { 'my-web-app' }
 
