@@ -79,7 +79,7 @@ And undeploy an old version of the application:
 
 ## Known problems
 
-* You need to `puppet apply` the configuration twice,
+* You may need to `puppet apply` the configuration twice,
   because the Tomcat Manager declarations have insufficient dependencies.
 
   In addition, you also need to `sudo service my-web-application restart`, because of the
