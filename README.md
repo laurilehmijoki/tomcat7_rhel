@@ -77,10 +77,6 @@ And undeploy an old version of the application:
 
     ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
 
-## Known problems
-
-* The Tomcat access logs are not rotated.
-
 ## Development
 
 ### Versioning
