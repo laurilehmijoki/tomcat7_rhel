@@ -45,6 +45,40 @@ describe 'tomcat7_rhel::tomcat_application' do
     }
   end
 
+  context 'JMX support with default ports' do
+    let(:title) { 'my-web-app' }
+
+    let(:params) {{
+      :application_root => '/opt',
+      :tomcat_user      => 'uzer',
+      :tomcat_port      => 8123,
+      :jvm_envs         => '-Di_love_java=true'
+    }}
+
+    it('enables the Tomcat JMX server') {
+      should contain_file('/opt/my-web-app/conf/server.xml').
+        with_content(/.*<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="10052" rmiServerPortPlatform="10051" \/>.*/m)
+    }
+  end
+
+  context 'customising JMX' do
+    let(:title) { 'my-web-app' }
+
+    let(:params) {{
+      :application_root => '/opt',
+      :tomcat_user      => 'uzer',
+      :tomcat_port      => 8123,
+      :jvm_envs         => '-Di_love_java=true',
+      :jmxRegistryPort  => 9999,
+      :jmxServerPort    => 8888
+    }}
+
+    it('allows the user to define JMX ports') {
+      should contain_file('/opt/my-web-app/conf/server.xml').
+        with_content(/.*<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="9999" rmiServerPortPlatform="8888" \/>.*/m)
+    }
+  end
+
   context 'minimal configuration' do
     let(:title) { 'my-web-app' }
 
