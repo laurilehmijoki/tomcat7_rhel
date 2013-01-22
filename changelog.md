@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+* Fix dependency error when `tomcat_manager` is set to false
+  ([#7](https://github.com/laurilehmijoki/tomcat7_rhel/issues/7))
+
 ## 1.1.0
 
 * Add support for the Tomcat parallel deployment feature
