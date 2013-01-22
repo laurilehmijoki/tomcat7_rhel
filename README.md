@@ -45,7 +45,7 @@ Features
 
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
-    ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps"
+    ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps/ROOT.war"
     ssh webuser@superserver "sudo service my-web-application restart"
 
 #### With Tomcat Manager
