@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+* Rotate Tomcat access logs
+
 ## 1.1.1
 
 * Fix dependency error when `tomcat_manager` is set to false
@@ -18,7 +22,7 @@
   info).
 
   You can migrate from previous versions to 1.0.0 by renaming
-  invocations of `tomcat7_rhel::tomcat-application` into 
+  invocations of `tomcat7_rhel::tomcat-application` into
   `tomcat7_rhel::tomcat_application`.
 
 ## 0.3.3
