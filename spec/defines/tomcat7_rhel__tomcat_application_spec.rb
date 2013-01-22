@@ -130,8 +130,8 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_file('/etc/logrotate.d/my-web-app').
-        with_content(
-          /\/opt\/my-web-app\/logs\/catalina.out {/m)
+        with_content(/\/opt\/my-web-app\/logs\/catalina.out {.*/m).
+        with_content(/\/opt\/my-web-app\/logs\/\*access_log\*.txt {/m)
     }
 
     it {
