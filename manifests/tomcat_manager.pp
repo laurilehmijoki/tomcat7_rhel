@@ -14,10 +14,6 @@ define tomcat7_rhel::tomcat_manager(
     before => Package["tomcat7-admin-webapps"]
   }
 
-  file { "$application_dir/bin":
-    ensure => directory
-  }
-
   file { "$application_dir/conf/Catalina/localhost/manager.xml":
     content => template("tomcat7_rhel/manager.xml.erb"),
     notify  => Service["$application_name"]
@@ -35,7 +31,7 @@ define tomcat7_rhel::tomcat_manager(
     mode    => 0740,
     require => File["$application_dir/bin"]
   }
-  
+
   file { "$application_dir/bin/list-applications.sh":
     content => template("tomcat7_rhel/list-applications.sh.erb"),
     owner   => "$tomcat_user",
@@ -43,7 +39,7 @@ define tomcat7_rhel::tomcat_manager(
     mode    => 0740,
     require => File["$application_dir/bin"]
   }
-  
+
   file { "$application_dir/bin/undeploy_with_tomcat_manager.sh":
     content => template("tomcat7_rhel/undeploy_with_tomcat_manager.sh.erb"),
     owner   => "$tomcat_user",
@@ -51,6 +47,4 @@ define tomcat7_rhel::tomcat_manager(
     mode    => 0740,
     require => File["$application_dir/bin"]
   }
-  
-  
 }

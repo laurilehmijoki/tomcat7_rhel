@@ -20,8 +20,9 @@ define tomcat7_rhel::tomcat_application(
   }
 
   file { [
-    "$application_dir/conf","$application_dir/temp","$application_dir/work",
-    "$application_dir/logs","$application_dir/webapps", "$application_dir/conf/Catalina",
+    "$application_dir/bin","$application_dir/conf","$application_dir/temp",
+    "$application_dir/work", "$application_dir/logs",
+    "$application_dir/webapps", "$application_dir/conf/Catalina",
     "$application_dir/conf/Catalina/localhost"]:
     ensure => directory,
     owner => $tomcat_user,
