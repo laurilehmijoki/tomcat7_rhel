@@ -34,9 +34,10 @@ define tomcat7_rhel::tomcat_application(
   }
 
   service { "$application_name":
-    ensure => running,
+    ensure    => running,
+    enable    => true,
     hasstatus => true,
-    require => Package['tomcat7']
+    require   => Package['tomcat7']
   }
 
   file { "/etc/init.d/$application_name":

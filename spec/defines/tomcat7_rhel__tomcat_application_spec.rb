@@ -114,7 +114,8 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_service('my-web-app').with({
-        'ensure' => 'running'
+        'ensure' => 'running',
+        'enable' => 'true'
       })
     }
 
