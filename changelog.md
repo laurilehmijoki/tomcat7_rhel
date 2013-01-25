@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+* Start the Tomcat service after reboot
+
 ## 1.2.0
 
 * Rotate Tomcat access logs
