@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+curl -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/findleaks?statusLine=true"
+
