@@ -32,6 +32,14 @@ define tomcat7_rhel::tomcat_manager(
     require => File["$application_dir/bin"]
   }
 
+  file { "$application_dir/bin/check-memoryleaks.sh":
+    content => template("tomcat7_rhel/check-memoryleaks.sh.erb"),
+    owner   => "$tomcat_user",
+    group   => "$tomcat_user",
+    mode    => 0740,
+    require => File["$application_dir/bin"]
+  }
+
   file { "$application_dir/bin/list-applications.sh":
     content => template("tomcat7_rhel/list-applications.sh.erb"),
     owner   => "$tomcat_user",

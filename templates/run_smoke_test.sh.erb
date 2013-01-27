@@ -1,13 +1,22 @@
 #!/bin/bash
 
-while curl -L -s -o /dev/null -w "%{http_code}" localhost:<%=tomcat_port%> | grep -v 200; do 
+COUNTER=0
+while curl -L -s -o /dev/null -w "%{http_code}" localhost:<%=tomcat_port%> | grep -v 200; do
   echo Waiting for <%=application_name%> to respond...
+  let COUNTER=COUNTER+1
+  if [  $COUNTER -ge 10 ]; then
+        break
+  fi
   sleep 2
 done
-if [[ "$?" == "0" ]]; then
-	echo "Smoke test on <%=application_name%> succeeded"
-	exit 0
+
+curl -L -s -o /dev/null -w "%{http_code}" localhost:<%=tomcat_port%> | grep 200 > /dev/null
+if [[ "$?" -eq 0 ]]; then
+        echo "Smoke test on <%=application_name%> succeeded"
+        exit 0
 else
-	echo "Smoke test on <%=application_name%> failed"
-	exit 1
+   	echo "Smoke test on <%=application_name%> failed"
+        exit 1
 fi
+
+
