@@ -56,6 +56,9 @@ Features
 Note that if you deploy with Manager, make sure your application shuts down correctly when Tomcat calls the
 `ServletContextListener#contextDestroyed` method, otherwise you will eventually experience out-of-memory errors.
 
+You can use the `check_memory_leaks.sh` to find memory leaks. It's under the 
+`bin` directory of your web application.
+
 #####  You can also use the parallel deployment feature of Tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)
 
     scp app.war webuser@superserver:/tmp/app.war
