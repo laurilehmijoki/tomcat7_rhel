@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0
+
+* Add utility script `check_memory_leaks.sh`. It can help you find memory leaks
+  in your software.
+* Wait at most 80 seconds for the smoke test to pass
+
 ## 1.3.0
 
 * Start the Tomcat service after reboot
