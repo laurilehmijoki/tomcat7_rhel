@@ -34,6 +34,12 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_file(
+        '/opt/my-app-with-tomcat-manager/bin/check_memory_leaks.sh').
+        with_content(/.*curl -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/findleaks\?statusLine=true*/m)
+    }
+
+    it {
+      should contain_file(
         '/opt/my-app-with-tomcat-manager/bin/list-applications.sh').
         with_content(/.*curl -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/list".*/m)
     }
