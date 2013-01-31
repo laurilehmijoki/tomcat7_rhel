@@ -7,10 +7,6 @@ define tomcat7_rhel::tomcat_manager(
                                     $tomcat_port) {
   require tomcat7_rhel::tomcat7_manager_package
 
-  File {
-    before => Package["tomcat7-admin-webapps"]
-  }
-
   file { "$application_dir/conf/Catalina/localhost/manager.xml":
     content => template("tomcat7_rhel/manager.xml.erb"),
     notify  => Service["$application_name"]
