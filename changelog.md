@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 2.0.0
 
 * Remove default JVM parameters
 
