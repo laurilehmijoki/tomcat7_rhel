@@ -47,7 +47,7 @@ define tomcat7_rhel::tomcat_application(
   }
 
   if $tomcat_manager == true {
-    tomcat7_rhel::tomcat_manager { "Install Tomcat Manager":
+    tomcat7_rhel::tomcat_manager { "Install Tomcat Manager for $application_name":
     tomcat_admin_user => $tomcat_admin_user,
     tomcat_admin_password => $tomcat_admin_password,
     tomcat_user => $tomcat_user,
