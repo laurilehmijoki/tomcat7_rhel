@@ -2,6 +2,12 @@
 
 ## HEAD
 
+* Rename `tomcat7_rhel::tomcat_application` params `jmxRegistryPort` =>
+  `jmx_registry_port` and `jmxServerPort` => `jmx_server_port`
+
+  **This change breaks the backward compatibility.** Migrate by renaming the
+  variables in your `tomcat7_rhel::tomcat_application` invocations.
+
 * Infer Tomcat control port from the HTTP port (default: HTTP port + 1000)
 
 ## 1.4.3

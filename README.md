@@ -27,8 +27,8 @@ Features
         tomcat_manager => true,
         tomcat_admin_user => "superuser",
         tomcat_admin_password => "secretpassword",
-        jmxRegistryPort => 10054,
-        jmxServerPort => 10053
+        jmx_registry_port => 10054,
+        jmx_server_port => 10053
       }
 
       tomcat7_rhel::tomcat_application { "my-second-application":

@@ -77,8 +77,8 @@ describe 'tomcat7_rhel::tomcat_application' do
       :tomcat_user      => 'uzer',
       :tomcat_port      => 8123,
       :jvm_envs         => '-Di_love_java=true',
-      :jmxRegistryPort  => 9999,
-      :jmxServerPort    => 8888
+      :jmx_registry_port  => 9999,
+      :jmx_server_port    => 8888
     }}
 
     it('allows the user to define JMX ports') {
