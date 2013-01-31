@@ -87,6 +87,23 @@ describe 'tomcat7_rhel::tomcat_application' do
     }
   end
 
+  context 'Custom Tomcat control port' do
+    let(:title) { 'my-web-app' }
+
+    let(:params) {{
+      :application_root => '/opt',
+      :tomcat_user      => 'uzer',
+      :tomcat_port      => 8123,
+      :tomcat_control_port      => 9000,
+      :jvm_envs         => '-Di_love_java=true'
+    }}
+
+    it {
+      should contain_file('/opt/my-web-app/conf/server.xml').
+      with_content(/.*<Server port="9000".*/m)
+    }
+  end
+
   context 'minimal configuration' do
     let(:title) { 'my-web-app' }
 
