@@ -101,10 +101,17 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it { should_not contain_package('tomcat7-admin-webapps') }
 
-    it {
-      should contain_file('/opt/my-web-app/conf/server.xml').
-        with_content(/.*port="8123".*/m)
-    }
+    context 'server.xml ports' do
+      it {
+        should contain_file('/opt/my-web-app/conf/server.xml').
+          with_content(/.*<Connector port="8123".*/m)
+      }
+
+      it {
+        should contain_file('/opt/my-web-app/conf/server.xml').
+          with_content(/.*<Server port="9123".*/m)
+      }
+    end
 
     it {
       should contain_file('/etc/init.d/my-web-app').with({

@@ -3,6 +3,7 @@ define tomcat7_rhel::tomcat_application(
   $application_root,
   $tomcat_user,
   $tomcat_port,
+  $tomcat_control_port = ($tomcat_port + 1000),
   $jvm_envs,
   $tomcat_manager = false,
   $tomcat_admin_user = "tomcat",

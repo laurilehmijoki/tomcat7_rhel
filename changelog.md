@@ -1,5 +1,9 @@
 # Changelog
 
+## HEAD
+
+* Infer Tomcat control port from the HTTP port (default: HTTP port + 1000)
+
 ## 1.4.3
 
 * Fix dependency cycle problem when installing Tomcat Manager
