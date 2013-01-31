@@ -3,7 +3,7 @@ CATALINA_HOME="<%= catalina_home %>"
 CATALINA_BASE="<%= application_dir%>"
 CATALINA_TMPDIR="$CATALINA_BASE/temp"
 
-JVM_OPTS="-server -Xmx1024m -Xms128m -XX:MaxPermSize=256m <%= jvm_envs %>"
+JVM_OPTS="<%= jvm_envs %>"
 
 JAVA_OPTS="${JAVA_OPTS} ${JVM_OPTS}"
 

@@ -153,7 +153,7 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_file('/etc/sysconfig/my-web-app').
-        with_content(/.*JVM_OPTS="-server -Xmx1024m -Xms128m -XX:MaxPermSize=256m -Di_love_java=true".*/m)
+        with_content(/.*JVM_OPTS="-Di_love_java=true".*/m)
     }
 
     it {

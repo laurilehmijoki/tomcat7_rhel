@@ -2,6 +2,16 @@
 
 ## HEAD
 
+* Remove default JVM parameters
+
+  **This change breaks the backward compatibility.**
+
+  Before, the default parameters where these: `-server -Xmx1024m -Xms128m
+  -XX:MaxPermSize=256m`. From now on, you need to define all the JVM parameters.
+  You can migrate by adding e.g., `-server -Xmx1024m -Xms128m
+  -XX:MaxPermSize=256m` into the `jvm_envs` param of the
+  `tomcat7_rhel::tomcat_application` invocation.
+
 * Rename `tomcat7_rhel::tomcat_application` params `jmxRegistryPort` =>
   `jmx_registry_port` and `jmxServerPort` => `jmx_server_port`
 
