@@ -5,10 +5,7 @@ define tomcat7_rhel::tomcat_manager(
                                     $application_dir,
                                     $application_name,
                                     $tomcat_port) {
-  package { "tomcat7-admin-webapps":
-    ensure => installed,
-    require => [Package['tomcat7'], Yumrepo['jpackage']]
-  }
+  require tomcat7_rhel::tomcat7_manager_package
 
   File {
     before => Package["tomcat7-admin-webapps"]
@@ -54,5 +51,12 @@ define tomcat7_rhel::tomcat_manager(
     group   => "$tomcat_user",
     mode    => 0740,
     require => File["$application_dir/bin"]
+  }
+}
+
+class tomcat7_rhel::tomcat7_manager_package {
+  package { "tomcat7-admin-webapps":
+    ensure => installed,
+    require => [Package['tomcat7'], Yumrepo['jpackage']]
   }
 }
