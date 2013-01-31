@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.1
+
+* Use unique name when invoking `tomcat7_rhel::tomcat_manager`
+
+  Without the unique name, it is not possible to install multiple applications
+  that use Manager.
+
 ## 1.4.0
 
 * Add utility script `check_memory_leaks.sh`. It can help you find memory leaks
