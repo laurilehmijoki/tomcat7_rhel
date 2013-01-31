@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.4.3
+
+* Fix dependency cycle problem when installing Tomcat Manager
+
+## 1.4.2
+
+* Declare Package['tomcat7-admin-webapps'] only once
+
+  Before, the package was declared as many times as
+  `tomcat7_rhel::tomcat_manager` was called. This made it impossible to install
+  multiple applications that use Manager.
+
 ## 1.4.1
 
 * Use unique name when invoking `tomcat7_rhel::tomcat_manager`
