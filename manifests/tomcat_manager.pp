@@ -49,10 +49,3 @@ define tomcat7_rhel::tomcat_manager(
     require => File["$application_dir/bin"]
   }
 }
-
-class tomcat7_rhel::tomcat7_manager_package {
-  package { "tomcat7-admin-webapps":
-    ensure => installed,
-    require => [Package['tomcat7'], Yumrepo['jpackage']]
-  }
-}
