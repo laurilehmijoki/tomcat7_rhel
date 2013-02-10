@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+* Add --fail param to the `curl` calls
+
+  Before this, the `curl` did not fail even though Tomcat Manager was missing.
+
 ## 2.0.0
 
 * Remove default JVM parameters
