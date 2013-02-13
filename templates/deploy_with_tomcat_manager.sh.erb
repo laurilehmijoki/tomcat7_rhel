@@ -22,4 +22,4 @@ if [ ! -z "$VERSION" ]; then
 fi
 
 
-curl --fail -4 -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=<%=application_name%>&war=file:$WAR_FILE&update=true$VERSIONSTRING"
+curl --fail -4 -s -u <%=tomcat_admin_user%>:<%=tomcat_admin_password%> "http://localhost:<%=tomcat_port%>/manager/text/deploy?path=/&tag=<%=application_name%>&war=file:$WAR_FILE&update=true$VERSIONSTRING"
