@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+* Make curl silent (-s) in tomcat manager deploy & undeploy
+
 ## 2.0.1
 
 * Add --fail param to the `curl` calls
