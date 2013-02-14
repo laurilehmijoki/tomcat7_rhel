@@ -31,7 +31,7 @@ describe 'tomcat7_rhel::tomcat_application' do
     it {
       should contain_file(
         '/opt/my-app-with-tomcat-manager/bin/deploy_with_tomcat_manager.sh').
-        with_content(/.*curl --fail -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/deploy\?path=\/&tag=my-app-with-tomcat-manager.*/m)
+        with_content(/.*curl --fail -4 -s -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/deploy\?path=\/&tag=my-app-with-tomcat-manager.*/m)
     }
 
     it {
@@ -49,7 +49,7 @@ describe 'tomcat7_rhel::tomcat_application' do
     it {
       should contain_file(
         '/opt/my-app-with-tomcat-manager/bin/undeploy_with_tomcat_manager.sh').
-        with_content(/.*curl --fail -4 -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/undeploy\?path=.*&tag=my-app-with-tomcat-manager".*/m)
+        with_content(/.*curl --fail -4 -s -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/undeploy\?path=.*&tag=my-app-with-tomcat-manager".*/m)
     }
   end
 
