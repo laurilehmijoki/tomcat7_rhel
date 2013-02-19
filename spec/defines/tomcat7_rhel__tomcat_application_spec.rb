@@ -65,7 +65,7 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it('enables the Tomcat JMX server') {
       should contain_file('/opt/my-web-app/conf/server.xml').
-        with_content(/.*<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="10052" rmiServerPortPlatform="10051" \/>.*/m)
+        with_content(/.*<Listener className="org\.apache\.catalina\.mbeans\.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="10052" rmiServerPortPlatform="10051" \/>.*/m)
     }
   end
 
@@ -83,7 +83,7 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it('allows the user to define JMX ports') {
       should contain_file('/opt/my-web-app/conf/server.xml').
-        with_content(/.*<Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="9999" rmiServerPortPlatform="8888" \/>.*/m)
+        with_content(/.*<Listener className="org\.apache\.catalina\.mbeans\.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="9999" rmiServerPortPlatform="8888" \/>.*/m)
     }
   end
 
@@ -163,8 +163,8 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_file('/etc/logrotate.d/my-web-app').
-        with_content(/\/opt\/my-web-app\/logs\/catalina.out {.*/m).
-        with_content(/\/opt\/my-web-app\/logs\/\*access_log\*.txt {/m)
+        with_content(/\/opt\/my-web-app\/logs\/catalina\.out \{.*/m).
+        with_content(/\/opt\/my-web-app\/logs\/\*access_log\*.txt \{.*/m)
     }
 
     it {
