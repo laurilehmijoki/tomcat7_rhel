@@ -134,6 +134,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b %T %{User-Agent}i" 
+	       rotatable=false/>
       </Host>
     </Engine>
   </Service>
