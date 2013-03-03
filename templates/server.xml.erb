@@ -134,7 +134,7 @@
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-               prefix="localhost_access_log." suffix=".txt"
+               prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b %T %{User-Agent}i" 
 	       rotatable="false"/>
       </Host>
