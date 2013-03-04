@@ -8,6 +8,7 @@ define tomcat7_rhel::tomcat_application(
   $tomcat_manager = false,
   $tomcat_admin_user = "tomcat",
   $tomcat_admin_password = "s3cr3t",
+  $tomcat_cluster_config = "",
   $jmx_registry_port = 10052,
   $jmx_server_port = 10051) {
   include tomcat7_rhel

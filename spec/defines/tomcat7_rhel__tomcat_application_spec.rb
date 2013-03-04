@@ -172,4 +172,22 @@ describe 'tomcat7_rhel::tomcat_application' do
         with_content(/.*curl -L.*localhost:8123.*/m)
     }
   end
+
+  context 'Custom Tomcat cluster configuration' do
+    let(:title) { 'my-web-app' }
+
+    let(:params) {{
+      :application_root      => '/opt',
+      :tomcat_user           => 'uzer',
+      :tomcat_port           => 8123,
+      :jvm_envs              => '-Di_love_java=true',
+      :tomcat_cluster_config => '<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>'
+    }}
+
+    it {
+      should contain_file('/opt/my-web-app/conf/server.xml').
+      with_content(/.*<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"\/>.*/m)
+    }
+  end
+
 end
