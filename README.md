@@ -41,13 +41,13 @@ Features
 
 ### Configure with Tomcat session replication
 
-Take a look at (http://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html) for configuration options.
+Take a look at [Tomcat 7 Clustering/Session Replication HOW-TO](http://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html).
 
-Enable default clustering by passing `tomcat_cluster_config` into `tomcat7_rhel::tomcat_application`
+Enable default clustering by passing `tomcat_cluster_config` into `tomcat7_rhel::tomcat_application`:
 
     tomcat_cluster_config => "<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>"
 
-Full control over the clustering xml fragment can be done conveniently by e.g. using your own template.
+Full control over the clustering xml fragment can be done conveniently by using your own template:
 
 	tomcat_cluster_config => template("mymodule/my_tomcat_cluster_config.erb")
 
