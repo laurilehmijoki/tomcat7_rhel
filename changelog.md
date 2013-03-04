@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.0
+
+* Log the request processing time into access log
+* Do not rotate logs on Tomcat, let `logrotate` do that
+* Start using `RemoteIpValve`
+* In `server.xml`, add double quotes around `rotatable`
+* In `server.xml`, remove extra '.' from access log filename
+
 ## 2.0.2
 
 * Make curl silent (-s) in tomcat manager deploy & undeploy
