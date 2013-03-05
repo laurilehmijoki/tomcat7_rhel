@@ -39,11 +39,12 @@ Features
       }
     }
 
-### Adding extra configuration into the `<Engine>` tag in `server.xml`
+### Adding extra configuration into the `<Engine>` tag of `server.xml`
 
-You can include additional configuration in the `<Engine>` tag of `server.xml`
-by including your configuratiion in the `server_xml_engine_config` parameter of
-`tomcat7_rhel::tomcat_application`.
+You can include additional configuration in the `<Engine>` tag of you
+`server.xml` by including a valid
+[engine](http://tomcat.apache.org/tomcat-7.0-doc/config/engine.html) value in
+the `server_xml_engine_config` parameter of `tomcat7_rhel::tomcat_application`.
 
 For example, you can enable Tomcat 7 session replication with the help of the
 `server_xml_engine_config` parameter. See the example below for more info.
