@@ -2,7 +2,7 @@
 
 ## 2.2.0
 
-* Add custom XML into the <Engine> tag of server.xml
+* Add custom XML into the `<Engine>` tag of `server.xml`
 * Use real user IP also in access log
 
 ## 2.1.0
