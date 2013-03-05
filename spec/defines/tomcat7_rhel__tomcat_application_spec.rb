@@ -173,15 +173,15 @@ describe 'tomcat7_rhel::tomcat_application' do
     }
   end
 
-  context 'Custom Tomcat cluster configuration' do
+  describe 'Specifying additional engine XML config' do
     let(:title) { 'my-web-app' }
 
     let(:params) {{
-      :application_root      => '/opt',
-      :tomcat_user           => 'uzer',
-      :tomcat_port           => 8123,
-      :jvm_envs              => '-Di_love_java=true',
-      :tomcat_cluster_config => '<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>'
+      :application_root         => '/opt',
+      :tomcat_user              => 'uzer',
+      :tomcat_port              => 8123,
+      :jvm_envs                 => '-Di_love_java=true',
+      :server_xml_engine_config => '<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>'
     }}
 
     it {

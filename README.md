@@ -39,19 +39,26 @@ Features
       }
     }
 
-### Configure with Tomcat session replication
+### Adding extra configuration into the `<Engine>` tag in `server.xml`
+
+You can include additional configuration in the `<Engine>` tag of `server.xml`
+by including your configuratiion in the `server_xml_engine_config` parameter of
+`tomcat7_rhel::tomcat_application`.
+
+For example, you can enable Tomcat 7 session replication with the help of the
+`server_xml_engine_config` parameter. See the example below for more info.
+
+#### Enabling session replication
 
 Take a look at [Tomcat 7 Clustering/Session Replication HOW-TO](http://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html).
 
-Enable default clustering by passing `tomcat_cluster_config` into `tomcat7_rhel::tomcat_application`:
+Enable default clustering by passing `server_xml_engine_config` into `tomcat7_rhel::tomcat_application`:
 
-    tomcat_cluster_config => "<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>"
+    server_xml_engine_config => "<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>"
 
 Full control over the clustering xml fragment can be done conveniently by using your own template:
 
-	tomcat_cluster_config => template("mymodule/my_tomcat_cluster_config.erb")
-
-The content of `tomcat_cluster_config` variable is inserted into `server.xml` under the `<Engine>` node.
+	server_xml_engine_config => template("mymodule/my_tomcat_cluster_config.erb")
 
 ### Deploy
 
@@ -70,7 +77,7 @@ The content of `tomcat_cluster_config` variable is inserted into `server.xml` un
 Note that if you deploy with Manager, make sure your application shuts down correctly when Tomcat calls the
 `ServletContextListener#contextDestroyed` method, otherwise you will eventually experience out-of-memory errors.
 
-You can use the `check_memory_leaks.sh` to find memory leaks. It's under the 
+You can use the `check_memory_leaks.sh` to find memory leaks. It's under the
 `bin` directory of your web application.
 
 #####  You can also use the parallel deployment feature of Tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)

@@ -106,7 +106,7 @@
       <!--For clustering, please take a look at documentation at:
           /docs/cluster-howto.html  (simple how to)
           /docs/config/cluster.html (reference documentation) -->
-      <%= tomcat_cluster_config %>
+      <%= server_xml_engine_config %>
 
       <!-- Use the LockOutRealm to prevent attempts to guess user passwords
            via a brute-force attack -->
@@ -133,7 +133,7 @@
              Documentation at: /docs/config/valve.html -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log" suffix=".txt"
-               pattern="%h %l %u %t &quot;%r&quot; %s %b %T %{User-Agent}i" 
+               pattern="%h %l %u %t &quot;%r&quot; %s %b %T %{User-Agent}i"
 	       rotatable="false" requestAttributesEnabled="true"/>
       </Host>
     </Engine>
