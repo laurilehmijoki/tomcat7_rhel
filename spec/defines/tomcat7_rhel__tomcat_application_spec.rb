@@ -169,11 +169,11 @@ describe 'tomcat7_rhel::tomcat_application' do
 
     it {
       should contain_file('/opt/my-web-app/bin/run_smoke_test.sh').
-        with_content(/.*curl -L.*localhost:8123.*/m)
+        with_content(/.*curl --fail --retry 3 -L.*localhost:8123\/.*/m)
     }
   end
 
-  describe 'Specifying additional engine XML config' do
+    describe 'Specifying additional engine XML config' do
     let(:title) { 'my-web-app' }
 
     let(:params) {{
@@ -187,6 +187,23 @@ describe 'tomcat7_rhel::tomcat_application' do
     it {
       should contain_file('/opt/my-web-app/conf/server.xml').
       with_content(/.*<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"\/>.*/m)
+    }
+  end
+
+  describe 'Specifying healthcheck url for smoketest' do
+    let(:title) { 'my-web-app' }
+
+    let(:params) {{
+      :application_root         => '/opt',
+      :tomcat_user              => 'uzer',
+      :tomcat_port              => 8123,
+      :jvm_envs                 => '-Di_love_java=true',
+      :smoke_test_path => "/health"
+    }}
+
+    it {
+      should contain_file('/opt/my-web-app/bin/run_smoke_test.sh').
+        with_content(/.*curl --fail --retry 3 -L.*localhost:8123\/health.*/m)
     }
   end
 

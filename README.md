@@ -27,6 +27,7 @@ Features
         tomcat_manager => true,
         tomcat_admin_user => "superuser",
         tomcat_admin_password => "secretpassword",
+        smoke_test_path => "/health-check"
         jmx_registry_port => 10054,
         jmx_server_port => 10053
       }
