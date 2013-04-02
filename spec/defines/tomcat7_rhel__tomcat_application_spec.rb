@@ -173,7 +173,7 @@ describe 'tomcat7_rhel::tomcat_application' do
     }
   end
 
-    describe 'Specifying additional engine XML config' do
+  describe 'Specifying additional engine XML config' do
     let(:title) { 'my-web-app' }
 
     let(:params) {{
@@ -201,10 +201,12 @@ describe 'tomcat7_rhel::tomcat_application' do
       :smoke_test_path => "/health"
     }}
 
-    it {
-      should contain_file('/opt/my-web-app/bin/run_smoke_test.sh').
-        with_content(/.*curl --fail --retry 3 -L.*localhost:8123\/health.*/m)
-    }
+    context 'file run_smoke_test.sh' do
+      it {
+        should contain_file('/opt/my-web-app/bin/run_smoke_test.sh').
+          with_content(/.*curl --fail --retry 3 -L.*localhost:8123\/health.*/m)
+      }
+    end
   end
 
 end
