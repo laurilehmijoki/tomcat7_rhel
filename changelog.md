@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+
+* Add possibility to define path for smoke test
+
 ## 2.2.0
 
 * Add custom XML into the `<Engine>` tag of `server.xml`
