@@ -10,7 +10,8 @@ define tomcat7_rhel::tomcat_application(
   $tomcat_admin_password = "s3cr3t",
   $server_xml_engine_config = "",
   $jmx_registry_port = 10052,
-  $jmx_server_port = 10051) {
+  $jmx_server_port = 10051,
+  $smoke_test_path = "/") {
   include tomcat7_rhel
 
   $application_dir = "$application_root/$application_name"
