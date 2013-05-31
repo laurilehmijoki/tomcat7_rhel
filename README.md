@@ -22,7 +22,7 @@ Do not use this project until the JPackage indices are fixed.
    **different** version that what's available (refer to steps 1 and 2 here)
 4. If the versions do not match, this project does not work. Go do something
    else!
-4.1 If the versions match, please notify lauri.lehmijoki@iki.fi
+5. If the versions match, please notify lauri.lehmijoki@iki.fi
 
 ## Features
 
