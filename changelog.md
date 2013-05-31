@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1
+
+* Stop using a broken JPackage mirror and replace it with a working one
+
 ## 2.3.0
 
 * Add possibility to define path for smoke test
