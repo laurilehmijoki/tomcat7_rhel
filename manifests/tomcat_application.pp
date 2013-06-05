@@ -9,6 +9,7 @@ define tomcat7_rhel::tomcat_application(
   $tomcat_admin_user = "tomcat",
   $tomcat_admin_password = "s3cr3t",
   $server_xml_engine_config = "",
+  $disable_access_log = false,
   $jmx_registry_port = 10052,
   $jmx_server_port = 10051,
   $smoke_test_path = "/") {
