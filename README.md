@@ -58,6 +58,7 @@ Do not use this project until the JPackage indices are fixed.
         application_root => "/opt",
         tomcat_user => "webuser",
         tomcat_port => "8090",
+        disable_access_log => true,
         jvm_envs => "-server -Xmx1024m -Xms128m -XX:MaxPermSize=256m -Dmy.java.opt=i_love_scala -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=some.ip.address"
       }
     }
