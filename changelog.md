@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.0
+
+* Add option for disabling access logging
+
 ## 2.3.1
 
 * Stop using a broken JPackage mirror and replace it with a working one
