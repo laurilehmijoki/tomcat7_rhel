@@ -99,6 +99,10 @@ And undeploy an old version of the application:
 
 	ssh webuser@superserver "/opt/my-web-application/bin/undeploy_with_tomcat_manager.sh 1.1"
 
+### Run smoke test on the application
+
+    ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
+
 ### For Hiera users
 
 From <https://github.com/laurilehmijoki/tomcat7_rhel/pull/22#issuecomment-23689505>:
@@ -117,10 +121,6 @@ following yaml (change to json for json users, obviously):
           tomcat_admin_password: secretpassword
           tomcat_port: 8080
           tomcat_control_port: 9080
-
-### Run smoke test on the application
-
-    ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
 
 ## Development
 
