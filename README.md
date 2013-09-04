@@ -99,6 +99,25 @@ And undeploy an old version of the application:
 
 	ssh webuser@superserver "/opt/my-web-application/bin/undeploy_with_tomcat_manager.sh 1.1"
 
+### For Hiera users
+
+From <https://github.com/laurilehmijoki/tomcat7_rhel/pull/22#issuecomment-23689505>:
+
+I've added a class tomcat7_rhel::tomcat_instances, which allows users of hiera
+to assign defined types through this class wrapper using for example the
+following yaml (change to json for json users, obviously):
+
+    tomcat7_rhel::tomcat_instances::instances:
+        tomcat-datascience:
+          application_root: /meltwater
+          tomcat_user: www-data
+          jvm_envs: "-server -Xmx128m -Xms128m -XX:MaxPermSize=256m"
+          tomcat_manager: true
+          tomcat_admin_user: superuser
+          tomcat_admin_password: secretpassword
+          tomcat_port: 8080
+          tomcat_control_port: 9080
+
 ### Run smoke test on the application
 
     ssh webuser@superserver "/opt/my-web-application/bin/run_smoke_test.sh"
