@@ -1,29 +1,6 @@
 # Tomcat 7 on RHEL 6 [![Build Status](https://secure.travis-ci.org/laurilehmijoki/tomcat7_rhel.png)]
 (http://travis-ci.org/laurilehmijoki/tomcat7_rhel)
 
-## This package is broken!
-
-At the moment the indices of the [JPackage Project](http://www.jpackage.org/)
-are corrupted. As a result, this Puppet module is broken.
-
-The indices point to Tomcat 7.0.34, whereas the mirrors only contain the version
-7.0.39.
-
-Do not use this project until the JPackage indices are fixed.
-
-### Verifying that the indices do not work
-
-1. Open <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/> and find
-   `tomcat7`
-2. Note the version of the tomcat7 RPM package
-3. Open
-   <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/repodata/filelists.xml.gz>
-   and check if the tomcat7 entry in the `filelists.xml` points to a
-   **different** version that what's available (refer to steps 1 and 2 here)
-4. If the versions do not match, this project does not work. Go do something
-   else!
-5. If the versions match, please notify lauri.lehmijoki@iki.fi
-
 ## Features
 
 * Deploy multiple Tomcat instances on same machine ("the base + home setup")
@@ -145,3 +122,25 @@ You can run the tests like this:
 
 This project in Puppet Forge:
 <http://forge.puppetlabs.com/llehmijo/tomcat7_rhel>.
+
+## A note about JPackage unstability
+
+Sometimes the indices of the [JPackage Project](http://www.jpackage.org/)
+become corrupted. When that happens, this Puppet module will fail to install
+the Tomcat package.
+
+For example, the indices might point to Tomcat 7.0.34, whereas the mirrors only
+contain the version 7.0.39.
+
+### Verifying that the indices do not work
+
+1. Open <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/> and find
+   `tomcat7`
+2. Note the version of the tomcat7 RPM package
+3. Open
+   <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/repodata/filelists.xml.gz>
+   and check if the tomcat7 entry in the `filelists.xml` points to a
+   **different** version that what's available (refer to steps 1 and 2 here)
+4. If the versions do not match, this project does not work. Go do something
+   else!
+5. If the versions match, please notify lauri.lehmijoki@iki.fi
