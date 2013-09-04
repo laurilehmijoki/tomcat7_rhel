@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.0
+
+* Add `class tomcat7_rhel::tomcat_instances` for Hiera users
+
 ## 2.4.0
 
 * Add option for disabling access logging
