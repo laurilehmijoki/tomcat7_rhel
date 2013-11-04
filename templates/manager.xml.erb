@@ -1,4 +1,4 @@
 <!--<?xml version="1.0" encoding="UTF-8"?> -->
 <Context path="/manager" docBase="/var/lib/tomcat7/webapps/manager" antiResourceLocking="false" privileged="true">
- 	<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.0\.0\.1|0:0:0:0:0:0:0:1" deny="" />
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<%= @tomcat_manager_allow_ip %>" deny="<%= @tomcat_manager_deny_ip %>" />
 </Context>

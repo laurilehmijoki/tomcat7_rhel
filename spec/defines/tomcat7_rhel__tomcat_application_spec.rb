@@ -9,6 +9,7 @@ describe 'tomcat7_rhel::tomcat_application' do
       :tomcat_user      => 'uzer',
       :tomcat_port      => 8123,
       :tomcat_manager   => true,
+      :tomcat_manager_allow_ip => '192\.168\..*',
       :jvm_envs         => '-Di_love_tomcat=true'
     }}
 
@@ -25,7 +26,8 @@ describe 'tomcat7_rhel::tomcat_application' do
     it {
       should contain_file(
         '/opt/my-app-with-tomcat-manager/conf/Catalina/localhost/manager.xml').
-        with_content(/.*Context path="\/manager".*/m)
+        with_content(/.*Context path="\/manager".*/m).
+        with_content(/.*allow="192\\.168\\.\.\*".*/m)
     }
 
     it {
