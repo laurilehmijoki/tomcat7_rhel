@@ -145,6 +145,13 @@ You can run the tests like this:
     bundle install # Installs the Ruby gems that we use for testing
     rake
 
+### Creating a release
+
+1. Amend *changelog.md*
+2. Update *Modulefile*
+3. `puppet module build`
+4. Upload to <http://forge.puppetlabs.com/llehmijo/tomcat7_rhel>
+
 ## Links
 
 This project in Puppet Forge:
