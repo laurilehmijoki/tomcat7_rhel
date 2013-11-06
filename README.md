@@ -90,7 +90,7 @@ Note that if you deploy with Manager, make sure your application shuts down corr
 You can use the `check_memory_leaks.sh` to find memory leaks. It's under the
 `bin` directory of your web application.
 
-###  You can also use the parallel deployment feature of Tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)
+###  Using the parallel deployment feature of Tomcat
 
     scp app.war webuser@superserver:/tmp/app.war
     ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war 1.2"
@@ -106,6 +106,9 @@ You can list the running applications and their versions:
 And undeploy an old version of the application:
 
 	ssh webuser@superserver "/opt/my-web-application/bin/undeploy_with_tomcat_manager.sh 1.1"
+
+Here is more info on [Tomcat parallel
+deployment](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment).
 
 ### Run smoke test on the application
 
