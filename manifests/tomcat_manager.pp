@@ -1,6 +1,8 @@
 define tomcat7_rhel::tomcat_manager(
                                     $tomcat_admin_user,
                                     $tomcat_admin_password,
+                                    $tomcat_manager_allow_ip,
+                                    $tomcat_manager_deny_ip,
                                     $tomcat_user,
                                     $application_dir,
                                     $application_name,
