@@ -26,7 +26,7 @@
         tomcat_manager => true,
         tomcat_admin_user => "superuser",
         tomcat_admin_password => "secretpassword",
-        smoke_test_path => "/health-check"
+        smoke_test_path => "/health-check",
         jmx_registry_port => 10054,
         jmx_server_port => 10053
       }
@@ -40,6 +40,8 @@
       }
     }
 
+## Custom configurations
+
 ### Adding extra configuration into the `<Engine>` tag of `server.xml`
 
 You can include additional configuration in the `<Engine>` tag of you
@@ -50,7 +52,7 @@ the `server_xml_engine_config` parameter of `tomcat7_rhel::tomcat_application`.
 For example, you can enable Tomcat 7 session replication with the help of the
 `server_xml_engine_config` parameter. See the example below for more info.
 
-#### Enabling session replication
+### Enabling session replication
 
 Take a look at [Tomcat 7 Clustering/Session Replication HOW-TO](http://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html).
 
@@ -62,16 +64,21 @@ Full control over the clustering xml fragment can be done conveniently by using 
 
 	server_xml_engine_config => template("mymodule/my_tomcat_cluster_config.erb")
 
-### Deploy
+### Specifying allow/deny IPs for Tomcat Manager
 
-#### Without Tomcat Manager
+Pass the params `tomcat_manager_allow_ip` and `tomcat_manager_deny_ip` to
+`tomcat7_rhel::tomcat_application`.
+
+## Deploy
+
+### Without Tomcat Manager
 
     scp app.war webuser@superserver:~/app.war
     ssh webuser@superserver "rm -rf /opt/my-web-application/webapps/*"
     ssh webuser@superserver "cp ~/app.war /opt/my-web-application/webapps/ROOT.war"
     ssh webuser@superserver "sudo service my-web-application restart"
 
-#### With Tomcat Manager
+### With Tomcat Manager
 
     scp app.war webuser@superserver:/tmp/app.war
     ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war"
@@ -82,7 +89,7 @@ Note that if you deploy with Manager, make sure your application shuts down corr
 You can use the `check_memory_leaks.sh` to find memory leaks. It's under the
 `bin` directory of your web application.
 
-#####  You can also use the parallel deployment feature of Tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)
+###  You can also use the parallel deployment feature of Tomcat (http://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment)
 
     scp app.war webuser@superserver:/tmp/app.war
     ssh webuser@superserver "/opt/my-web-application/bin/deploy_with_tomcat_manager.sh /tmp/app.war 1.2"

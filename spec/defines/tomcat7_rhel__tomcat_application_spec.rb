@@ -51,6 +51,42 @@ describe 'tomcat7_rhel::tomcat_application' do
         '/opt/my-app-with-tomcat-manager/bin/undeploy_with_tomcat_manager.sh').
         with_content(/.*curl --fail -4 -s -u tomcat:s3cr3t "http:\/\/localhost:8123\/manager\/text\/undeploy\?path=.*&tag=my-app-with-tomcat-manager".*/m)
     }
+
+    context 'the user specifies a custom allow_ip for the manager' do
+      let(:params) {{
+        :application_root => '/opt',
+        :tomcat_user      => 'uzer',
+        :tomcat_port      => 8123,
+        :jvm_envs         => '-Di_love_tomcat=true',
+        :tomcat_manager   => true,
+        :tomcat_manager_allow_ip => '192\.168\..*'
+      }}
+
+      it {
+        should contain_file(
+          '/opt/my-app-with-tomcat-manager/conf/Catalina/localhost/manager.xml').
+          with_content(/.*Context path="\/manager".*/m).
+          with_content(/.*allow="192\\.168\\.\.\*".*/m)
+      }
+    end
+
+    context 'the user specifies a custom deny_ip for the manager' do
+      let(:params) {{
+        :application_root => '/opt',
+        :tomcat_user      => 'uzer',
+        :tomcat_port      => 8123,
+        :jvm_envs         => '-Di_love_tomcat=true',
+        :tomcat_manager   => true,
+        :tomcat_manager_deny_ip => '192\.200\..*'
+      }}
+
+      it {
+        should contain_file(
+          '/opt/my-app-with-tomcat-manager/conf/Catalina/localhost/manager.xml').
+          with_content(/.*Context path="\/manager".*/m).
+          with_content(/.*deny="192\\.200\\.\.\*".*/m)
+      }
+    end
   end
 
   context 'JMX support with default ports' do
