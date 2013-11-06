@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.6.0
+
+* Pass the params `tomcat_manager_allow_ip` and `tomcat_manager_deny_ip` to
+  `tomcat7_rhel::tomcat_application`.
+
 ## 2.5.0
 
 * Add `class tomcat7_rhel::tomcat_instances` for Hiera users
