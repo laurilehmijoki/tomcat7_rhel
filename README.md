@@ -67,7 +67,8 @@ Full control over the clustering xml fragment can be done conveniently by using 
 ### Specifying allow/deny IPs for Tomcat Manager
 
 Pass the params `tomcat_manager_allow_ip` and `tomcat_manager_deny_ip` to
-`tomcat7_rhel::tomcat_application`.
+`tomcat7_rhel::tomcat_application`. It will write them into the *manager.xml*
+file.
 
 ## Deploy
 
