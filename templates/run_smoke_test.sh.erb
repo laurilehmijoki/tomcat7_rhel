@@ -1,10 +1,10 @@
 #!/bin/bash
 
-curl --fail --retry 3 -L -sS -o /dev/null -w "%{http_code}" localhost:<%=tomcat_port%><%=smoke_test_path%> | grep 200 > /dev/null
+curl --fail --retry 3 -L -sS -o /dev/null -w "%{http_code}" localhost:<%=@tomcat_port%><%=@smoke_test_path%> | grep 200 > /dev/null
 if [[ "$?" -eq 0 ]]; then
-  echo "Smoke test on <%=application_name%> Succeeded"
+  echo "Smoke test on <%=@application_name%> Succeeded"
   exit 0
 else
-  echo "Smoke test on <%=application_name%> FAILED!"
+  echo "Smoke test on <%=@application_name%> FAILED!"
   exit 1
 fi
