@@ -1,17 +1,17 @@
-<%= tomcat_log %> {
+<%= @tomcat_log %> {
     copytruncate
     weekly
     rotate 52
     compress
     missingok
-    create 0644 <%= tomcat_user %> <%= tomcat_user %>
+    create 0644 <%= @tomcat_user %> <%= @tomcat_user %>
 }
 
-<%= application_dir %>/logs/*access_log*.txt {
+<%= @application_dir %>/logs/*access_log*.txt {
     copytruncate
     daily
     rotate 52
     compress
     missingok
-    create 0644 <%= tomcat_user %> <%= tomcat_user %>
+    create 0644 <%= @tomcat_user %> <%= @tomcat_user %>
 }

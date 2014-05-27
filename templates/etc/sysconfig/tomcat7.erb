@@ -1,16 +1,16 @@
 # Where your tomcat installation lives
-CATALINA_HOME="<%= catalina_home %>"
-CATALINA_BASE="<%= application_dir%>"
+CATALINA_HOME="<%= @catalina_home %>"
+CATALINA_BASE="<%= @application_dir%>"
 CATALINA_TMPDIR="$CATALINA_BASE/temp"
 
-JVM_OPTS="<%= jvm_envs %>"
+JVM_OPTS="<%= @jvm_envs %>"
 
 JAVA_OPTS="${JVM_OPTS}"
 
 # What user should run tomcat
-TOMCAT_USER="<%= tomcat_user %>"
+TOMCAT_USER="<%= @tomcat_user %>"
 
-TOMCAT_LOG=<%= tomcat_log %>
+TOMCAT_LOG=<%= @tomcat_log %>
 
 # You can change your tomcat locale here
 #LANG="en_US"
@@ -25,6 +25,6 @@ SHUTDOWN_WAIT="10"
 #SHUTDOWN_VERBOSE="false"
 
 # Set the TOMCAT_PID location
-CATALINA_PID="/var/run/<%= application_name %>.pid"
+CATALINA_PID="/var/run/<%= @application_name %>.pid"
 
-TOMCAT_CFG=/etc/sysconfig/<%= application_name %>
+TOMCAT_CFG=/etc/sysconfig/<%= @application_name %>
