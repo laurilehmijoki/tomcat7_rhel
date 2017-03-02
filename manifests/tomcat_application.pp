@@ -46,6 +46,13 @@ define tomcat7_rhel::tomcat_application(
     require   => Package['tomcat7']
   }
 
+  File { "/etc/init.d/tomcat7":
+    content => template("tomcat7_rhel/etc/init.d/tomcat7.erb"
+    owner => root,
+    group => root,
+    mode  => 0755,
+  }
+
   file { "/etc/init.d/$application_name":
     ensure => link,
     target => "/etc/init.d/tomcat7",
